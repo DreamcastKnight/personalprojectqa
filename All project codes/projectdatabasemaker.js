@@ -44,13 +44,26 @@ const Monster = sequelize.define('monster', {
 app.get('/add', async (req, res) => {
     await Monster.create({ name: "adult copper dragon", HP:184, STR:23, DEX:12, CON:21,INT:18,WIS:15,CHA:17})
     res.send("added")
-})
+  })
 
-app.get('/all', async (_req, res) => {
-    const result = await Monster.findAll();
+app.get('/all/:name', async (req, res) => {
+    const result = await Monster.findAll({
+        where:{
+            name: req.params.name
+        }
+    });
     res.send(result);
 });
 
+
+app.get('/getByName/:name', async (req, res) => {
+    // const result = await Monster.find({
+    //     where:{
+    //         name: Monster[+req.params.name]
+    //     }
+    // });
+    res.send(Monster[0]);
+});
 Monster.sync({ force: true });
 
 app.listen(8080);
