@@ -1,0 +1,22 @@
+{
+  "name": "things",
+  "version": "1.0.0",
+  "description": "node practice",
+  "main": "node test.js",
+  "scripts": {
+    "test": "runtest"
+  },
+  "author": "Jack Gilman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hash-brown": "^1.2.0",
+    "lodash": "^4.17.15",
+    "mysql2": "^2.0.0",
+    "sequelize": "^5.21.2",
+    "uwu": "^42.0.0"
+  },
+  "devDependencies": {
+    "coffee": "^5.2.2"
+  }
+}
