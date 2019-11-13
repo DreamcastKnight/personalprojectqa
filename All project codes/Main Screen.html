@@ -9,15 +9,15 @@
 <body>
     <div>
         <div class="topcorner">
-            <input type="text" class="form-control" aria-label="Enter username" aria-describedby="basic-addon2" id="uname" placeholder="Search">
+            <input type="text" class="form-control" aria-label="Enter username" aria-describedby="basic-addon2" id="name" placeholder="Search">
             <button class="btn btn-primary btn-lg" type="button"
                 onclick="monsterSearcherByName()">search</button>
         </div>
         <div class="infobox">
             <div class="body">
-                <div class="name">
+                <div>
                     <a name="toc_5"></a>
-                    <h2>Adult Copper Dragon</h2>
+                    <h2 id = "named"></h2>
                 </div>
                 <div class="subtitle">Huge <span>dragon, Chaotic Good</span></div>
                 <ul>
@@ -26,22 +26,22 @@
                     <li><strong>Speed </strong> 40 ft., climb 40 ft., fly 80 ft.</li>
                 </ul>
             </div>
-            <table>
+            <table id="statTable">
                 <tr>
                     <th>STR</th>
-                    <th>DEX</th>
+                    <th>DEX </th>
                     <th>CON</th>
                     <th>INT</th>
                     <th>WIS</th>
                     <th>CHA</th>
                 </tr>
                 <tr>
-                    <td>23 (+6)</td>
-                    <td>12 (+1)</td>
-                    <td>21 (+5)</td>
-                    <td>18 (+4)</td>
-                    <td>15 (+2)</td>
-                    <td>17 (+3)</td>
+                    <td id = "strength"></td>
+                    <td id = "dexterity"></td>
+                    <td id = "constitution"></td>
+                    <td id = "intelligence"></td>
+                    <td id = "wisdom"></td>
+                    <td id = "charisma"></td>
                 </tr>
             </table>
         </div>

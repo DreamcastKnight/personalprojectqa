@@ -1,28 +1,40 @@
 const Sequelize = require('sequelize');
 
 var sequelize = new Sequelize(
-    'htmldatabase',                 // Database
-    'root',                 // Username
-    'ilovecoding',     // Password
+    'projectdatabase',     //database
+    'root',                //username
+    'ilovecoding',         //password
     {
         host: 'localhost',
         dialect: 'mysql'
-    }
-);
+    });
 
 // Models
-const Item = sequelize.import(__dirname + '/item-model');
-const Location = sequelize.import(__dirname + '/location-model');
+const Monster = sequelize.import(__dirname + '/monster-model');
+const AllMonster = sequelize.import(__dirname + '/AllMonsters-model');
 
-// Associations
-Location.hasOne(Item);
 
-sequelize.sync({ force: true }).then(() => {
-    Location.create({ address: '123 Somewhere' });
-    Item.create({ name: 'test', locationId: 1 });
+
+Monster.belongsTo(AllMonster);
+AllMonster.hasMany(Monster);
+
+sequelize.sync({}).then(() => {
 });
 
+// Monster.sync({ force: true });
+// AllMonster.sync();
+
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
+
+
 module.exports = {
-    Item,
-    Location
+    Monster,
+    AllMonster
 };
