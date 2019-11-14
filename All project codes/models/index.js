@@ -18,7 +18,7 @@ const AllMonster = sequelize.import(__dirname + '/AllMonsters-model');
 Monster.belongsTo(AllMonster);
 AllMonster.hasMany(Monster);
 
-sequelize.sync({}).then(() => {
+sequelize.sync().then(() => {
 });
 
 // Monster.sync({ force: true });

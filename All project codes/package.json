@@ -18,6 +18,9 @@
     "uwu": "^42.0.0"
   },
   "devDependencies": {
-    "coffee": "^5.2.2"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coffee": "^5.2.2",
+    "mocha": "^6.2.2"
   }
 }

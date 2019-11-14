@@ -7,17 +7,33 @@ let mon_int = document.getElementById("intelligence");
 let mon_wis = document.getElementById("wisdom");
 let mon_cha = document.getElementById("charisma");
 function monsterSearcherByName() {
-    fetch(`http://localhost:8080/all/${name.value}`, {
+
+    fetch(`http://localhost:8080/monall/${name.value}`, {
         method: 'GET'
     })
         .then(data => data.json())
         .then(result => {
-            mon_name.innerHTML = result.name;
-            mon_str.innerHTML = result.STR;
-            mon_dex.innerHTML = result.DEX;
-            mon_con.innerHTML = result.CON;
-            mon_int.innerHTML = result.INT;
-            mon_wis.innerHTML = result.WIS;
-            mon_cha.innerHTML = result.CHA;
+            
+            return fetch(`http://localhost:8080/addnew/${result.id}`, {
+                method: 'GET'
+            });
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            return fetch(`http://localhost:8080/put/${name.value}`, {});
+        })
+        .then(res => res.json())
+        .then(data => {
+            mon_name.innerHTML = data[0].name;
+            mon_str.innerHTML = data[0].STR;
+            mon_dex.innerHTML = data[0].DEX;
+            mon_con.innerHTML = data[0].CON;
+            mon_int.innerHTML = data[0].INT;
+            mon_wis.innerHTML = data[0].WIS;
+            mon_cha.innerHTML = data[0].CHA;
+        })
+        .catch(err => {
+            // oh shit
         });
 }
