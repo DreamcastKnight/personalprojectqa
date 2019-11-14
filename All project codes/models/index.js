@@ -21,9 +21,6 @@ AllMonster.hasMany(Monster);
 sequelize.sync().then(() => {
 });
 
-// Monster.sync({ force: true });
-// AllMonster.sync();
-
 sequelize
     .authenticate()
     .then(() => {

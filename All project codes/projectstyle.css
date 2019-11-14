@@ -80,3 +80,16 @@ input {
     margin: 4px;
 }
 
+#size {
+    display:inline-block;
+    width:35px;
+} 
+#cType {
+    display:inline-block;
+    width:35px;
+} 
+/* 
+ #alignment{
+    display:inline-block;
+    width:25px;
+}  */

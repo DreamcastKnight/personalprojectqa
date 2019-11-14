@@ -4,7 +4,7 @@
   "description": "node practice",
   "main": "node test.js",
   "scripts": {
-    "test": "runtest"
+    "test": "mocha test/*.spec.js"
   },
   "author": "Jack Gilman",
   "license": "ISC",

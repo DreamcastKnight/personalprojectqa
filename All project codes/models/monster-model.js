@@ -38,6 +38,33 @@ module.exports = (sequelize, DataType) => {
         },
         CHA: {
             type: DataType.INTEGER
+        },
+        saves: {
+            type: DataType.STRING
+        },
+        skills: {
+            type: DataType.STRING
+        },
+        resists: {
+            type: DataType.STRING
+        },
+        immunes: {
+            type: DataType.STRING
+        },
+        senses: {
+            type: DataType.STRING
+        },
+        languages: {
+            type: DataType.STRING
+        },
+        challenge: {
+            type: DataType.INTEGER
+        },
+        actions: {
+            type: DataType.STRING
+        },
+        xp: {
+            type: DataType.INTEGER
         }
     });
 }
