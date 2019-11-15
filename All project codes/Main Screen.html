@@ -10,8 +10,10 @@
 <body>
     <div>
         <div class="topcorner">
-            <input type="text" class="form-control" aria-label="Enter username" aria-describedby="basic-addon2" id="name" placeholder="Search">
+            <input type="text" class="form-control" aria-label="Enter monster name" aria-describedby="basic-addon2" id="name" placeholder="Search">
             <button class="btn btn-primary btn-lg" type="button" onclick="monsterSearcherByName()">search</button>
+            <input type ="number" class="form-control" aria-label="Enter monster name" aria-describedby="basic-addon2" id="damage" placeholder="Damage"> 
+            <button class="btn btn-primary btn-lg" type="button" id="HPbutton" onclick="updateHitPoints()">oof</button>
         </div>
         <div class="infobox">
             <div class="body">
@@ -25,6 +27,7 @@
                 <ul>
                     <li id="AC"></li>
                     <li id="hit_points"></li>
+                    
                     <li id="speed"></li>
                 </ul>
             </div>

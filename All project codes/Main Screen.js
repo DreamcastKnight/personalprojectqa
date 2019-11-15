@@ -1,30 +1,32 @@
-let name = document.getElementById("name");
-let mon_named = document.getElementById("named");
-let mon_str = document.getElementById("strength");
-let mon_dex = document.getElementById("dexterity");
-let mon_con = document.getElementById("constitution");
-let mon_int = document.getElementById("intelligence");
-let mon_wis = document.getElementById("wisdom");
-let mon_cha = document.getElementById("charisma");
-let mon_size = document.getElementById("size");
-let mon_type = document.getElementById("cType");
-let mon_align = document.getElementById("alignment");
-let mon_speed = document.getElementById("speed");
-let mon_ac = document.getElementById("AC");
-let mon_hp = document.getElementById("hit_points");
-let mon_saves = document.getElementById("saving_throws")
-let mon_skills = document.getElementById("skills")
-let mon_resist = document.getElementById("resistences");
-let mon_immune = document.getElementById("immunities");
-let mon_senses = document.getElementById("senses");
-let mon_languages = document.getElementById("languages");
-let mon_cr = document.getElementById("challenge");
-let mon_actions = document.getElementById("actions");
-let mon_xp = document.getElementById("experience");
-let mon_img = document.getElementById("image101");
+const name = document.getElementById("name");
+const damage = document.getElementById('damage');
+const named = document.getElementById("named");
+const str = document.getElementById("strength");
+const dex = document.getElementById("dexterity");
+const con = document.getElementById("constitution");
+const int = document.getElementById("intelligence");
+const wis = document.getElementById("wisdom");
+const cha = document.getElementById("charisma");
+const size = document.getElementById("size");
+const type = document.getElementById("cType");
+const align = document.getElementById("alignment");
+const speed = document.getElementById("speed");
+const ac = document.getElementById("AC");
+const hp = document.getElementById("hit_points");
+const saves = document.getElementById("saving_throws")
+const skills = document.getElementById("skills")
+const resist = document.getElementById("resistences");
+const immune = document.getElementById("immunities");
+const senses = document.getElementById("senses");
+const languages = document.getElementById("languages");
+const cr = document.getElementById("challenge");
+const actions = document.getElementById("actions");
+const xp = document.getElementById("experience");
+const img = document.getElementById("image101");
 
 
 function monsterSearcherByName() {
+
     fetch(`http://localhost:8080/monall/${name.value}`, {
         method: 'GET'
     })
@@ -44,27 +46,40 @@ function monsterSearcherByName() {
         })
         .then(res => res.json())
         .then(data => {
-            mon_named.innerHTML = data.name;
-            mon_str.innerHTML = data.STR + ' (' + Math.floor(((data.STR / 2) - 5)) + ')';
-            mon_dex.innerHTML = data.DEX + ' (' + Math.floor(((data.DEX / 2) - 5)) + ')';
-            mon_con.innerHTML = data.CON + ' (' + Math.floor(((data.CON / 2) - 5)) + ')';;
-            mon_int.innerHTML = data.INT + ' (' + Math.floor(((data.INT / 2) - 5)) + ')';;
-            mon_wis.innerHTML = data.WIS + ' (' + Math.floor(((data.WIS / 2) - 5)) + ')';;
-            mon_cha.innerHTML = data.CHA + ' (' + Math.floor(((data.CHA / 2) - 5)) + ')';;
-            mon_size.innerHTML = data.size + ' ' + data.creatureType + ', ' + data.alignment;
-            // mon_type.innerHTML = data.creatureType + ' ';
-            // mon_align.innerHTML = data.alignment;
-            mon_ac.innerHTML = '<strong>Armor Class </strong>' + data.AC + ' (Natural Armor)';
-            mon_speed.innerHTML = '<strong> Speed </strong>' + data.speed;
-            mon_hp.innerHTML = '<strong>Hit Points </strong>' + data.HP;
-            mon_saves.innerHTML = '<strong>Saving Throws </strong>' + data.saves;
-            mon_skills.innerHTML = '<strong>Skills </strong>' + data.skills;
-            mon_resist.innerHTML = '<strong>Damage resistences </strong>' + data.resists;
-            mon_immune.innerHTML = '<strong>Damage Immunities </strong>' + data.immunes;
-            mon_senses.innerHTML = '<strong>Senses </strong>' + data.senses;
-            mon_languages.innerHTML = '<strong>Languages </strong>' + data.languages;
-            mon_cr.innerHTML = '<strong>Challenge </strong>' + data.challenge + ' exp' + data.xp;
-            mon_actions.innerHTML= data.actions;
-            mon_img.setAttribute('src', data.backurl);
+            named.innerHTML = data.name;
+            str.innerHTML = data.STR + ' (' + Math.floor(((data.STR / 2) - 5)) + ')';
+            dex.innerHTML = data.DEX + ' (' + Math.floor(((data.DEX / 2) - 5)) + ')';
+            con.innerHTML = data.CON + ' (' + Math.floor(((data.CON / 2) - 5)) + ')';;
+            int.innerHTML = data.INT + ' (' + Math.floor(((data.INT / 2) - 5)) + ')';;
+            wis.innerHTML = data.WIS + ' (' + Math.floor(((data.WIS / 2) - 5)) + ')';;
+            cha.innerHTML = data.CHA + ' (' + Math.floor(((data.CHA / 2) - 5)) + ')';;
+            size.innerHTML = data.size + ' ' + data.creatureType + ', ' + data.alignment;
+            ac.innerHTML = '<strong>Armor Class </strong>' + data.AC + ' (Natural Armor)';
+            speed.innerHTML = '<strong> Speed </strong>' + data.speed;
+            hp.innerHTML = '<strong>Hit Points </strong>' + data.HP;
+            saves.innerHTML = '<strong>Saving Throws </strong>' + data.saves;
+            skills.innerHTML = '<strong>Skills </strong>' + data.skills;
+            resist.innerHTML = '<strong>Damage resistences </strong>' + data.resists;
+            immune.innerHTML = '<strong>Damage Immunities </strong>' + data.immunes;
+            senses.innerHTML = '<strong>Senses </strong>' + data.senses;
+            languages.innerHTML = '<strong>Languages </strong>' + data.languages;
+            cr.innerHTML = '<strong>Challenge </strong>' + data.challenge + ' exp' + data.xp;
+            actions.innerHTML = data.actions;
+            img.setAttribute('src', data.backurl);
+            img.style.height = "400px";
+            img.style.length = "200px";
+        });
+}
+
+
+function updateHitPoints() {
+    let nm = name.value;
+    let hpv = damage.value;
+    fetch('http://localhost:8080/change/' + nm + '/' + hpv, {
+        method: 'PUT'
+    })
+        .then(res => res.json())
+        .then(data => {
+            hp.innerHTML = '<strong>Hit Points </strong>' + data.HP;
         });
 }

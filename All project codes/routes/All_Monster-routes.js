@@ -4,8 +4,8 @@ const models = require('../models');
 const router = express.Router();
 
 router.post('/monadd', async (req, res) => {
-    const {url: backurl, ...data} = req.body;
-    const newMonster = await models.AllMonster.create({...data, backurl});
+    const { url: backurl, ...data } = req.body;
+    const newMonster = await models.AllMonster.create({ ...data, backurl });
     res.send(newMonster);
 })
 
@@ -22,7 +22,10 @@ router.get('/monall', async (req, res, next) => {
     const result = await models.AllMonster.findAll();
     res.send(result);
 });
-  
+
+
+
+
 
 router.get('/break-stuff', (req, res, next) => {
     next('oh, no.')

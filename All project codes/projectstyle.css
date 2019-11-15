@@ -42,6 +42,7 @@ button{
     font-size: 30px;
     opacity: 0.9;
 }
+  
 
 .topcorner{
     position:absolute;
@@ -80,16 +81,19 @@ input {
     margin: 4px;
 }
 
-/* #size {
+ /* #hit_points {
     display:inline-block;
-    width:35px;
+    width:10px;
+    height:5px;
 } 
-#cType {
+#damage {
     display:inline-block;
-    width:35px;
+    width:10px;
+    height:5px;
 } 
  
- #alignment{
+ #HPbutton{
     display:inline-block;
-    width:25px;
-}   */
+    width:10px;
+    height:5px;
+}    */

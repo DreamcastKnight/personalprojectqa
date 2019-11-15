@@ -18,18 +18,24 @@ router.get('/all/:name', async (req, res, next) => {
 });
 
 router.get('/getData/:name', async (req, res, next) => {
-    const aresult = await models.Monster.findAll({ 
-        order: [ 
-            ['id', 'DESC' ]
-    ],
+    const aresult = await models.Monster.findAll({
+        order: [
+            ['id', 'DESC']
+        ],
         where: {
             name: req.params.name
         },
     });
-result=(aresult[0]);
-res.send(result);
-//console.log(result);
+    res.send(aresult[0].name);
 });
+
+router.put('/change/:name/:HP', async (req, res, next) => {
+    const monster = await models.Monster.findOne({ where: { name: req.params.name } });
+    monster.HP = req.params.HP;
+    await monster.save();
+    res.send(monster.HP);
+});
+
 
 router.get('/addnew/:id', async (req, res, next) => {
     const { id: allMonsterId, ...monsterToAdd } = (await models.AllMonster.findOne({ where: { id: req.params.id } })).get({ plain: true });
@@ -39,16 +45,9 @@ router.get('/addnew/:id', async (req, res, next) => {
 });
 
 
-
-router.get('/break-stuff', (req, res, next) => {
-    next('oh, no.')
-});
-
-router.use((err, req, res, next) => {
-    res.send({
-        error: 'congratulations. you played yourself',
-        messsage: err
-    });
+router.delete('/delete/:name', async (req, res) => {
+       await models.Monster.destroy({ where: { name: req.params.name } });
+       res.send('probably worked')
 });
 
 module.exports = router;
