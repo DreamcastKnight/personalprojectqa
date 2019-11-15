@@ -72,7 +72,7 @@ button{
     width: 350px;
     height:500px;
     border: 0px;
-    background:url("https://vignette.wikia.nocookie.net/forgottenrealms/images/6/6d/Monster_Manual_5e_-_Dragon%2C_Copper_-_p110.jpg/revision/latest?cb=20141111204924")no-repeat;
+    /* background:url("")no-repeat; */
     background-size: 100%;
 }
 
@@ -80,7 +80,7 @@ input {
     margin: 4px;
 }
 
-#size {
+/* #size {
     display:inline-block;
     width:35px;
 } 
@@ -88,8 +88,8 @@ input {
     display:inline-block;
     width:35px;
 } 
-/* 
+ 
  #alignment{
     display:inline-block;
     width:25px;
-}  */
+}   */

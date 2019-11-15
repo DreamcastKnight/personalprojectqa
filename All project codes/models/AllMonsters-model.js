@@ -65,6 +65,9 @@ module.exports = (sequelize, DataType) => {
         },
         xp: {
             type: DataType.INTEGER
+        },
+        backurl: {
+            type: DataType.STRING
         }
     });
 }
