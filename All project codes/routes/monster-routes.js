@@ -26,7 +26,7 @@ router.get('/getData/:name', async (req, res, next) => {
             name: req.params.name
         },
     });
-    res.send(aresult[0].name);
+    res.send(aresult[0]);
 });
 
 router.put('/change/:name/:HP', async (req, res, next) => {
