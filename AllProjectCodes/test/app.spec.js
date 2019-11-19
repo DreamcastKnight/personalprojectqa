@@ -14,6 +14,7 @@ describe('serverGets', () => {
             .end((err, res) => {
                 expt(res.status).to.eq(200);
                 expt(res.text).to.eq('Zombie');
+                expt(JSON.stringify(res.body).to.
                 done();
             })
     });

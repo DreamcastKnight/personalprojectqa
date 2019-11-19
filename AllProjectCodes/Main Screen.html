@@ -15,10 +15,10 @@
             <input type="text" class="form-control" aria-label="Enter monster name" aria-describedby="basic-addon2" id="name" placeholder="Search">
             <button class="btn btn-primary btn-lg" type="button" onclick="monsterSearcherByName()">search</button>
             <input type="number" class="form-control" aria-label="Enter monster name" aria-describedby="basic-addon2" id="damage" placeholder="Damage">
-            <button class="btn btn-primary btn-lg" type="button" id="HPbutton" onclick="updateHitPoints()">Deal damage</button>
+            <button class="btn btn-primary btn-lg" type="button" id="HPbutton" onclick="updateHitPoints()">Change hit points</button>
             <button class="btn btn-primary btn-lg" type="button" id="resButton" onclick="purgeThatStuff()">reset combat</button>
         </div>
-        <div class="infobox">
+        <div class="infobox" id = "info">
             <div class="body">
                 <div>
                     <a name="toc_5"></a>
@@ -66,7 +66,7 @@
     </div>
     <div>
         <div class="monsterimage" id="m_img">
-            <img src="https://i.kym-cdn.com/entries/icons/original/000/017/039/pressf.jpg"
+            <img 
                 id="image101" class='monsterimage'>
             <p></p>
         </div>
