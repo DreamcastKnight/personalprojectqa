@@ -3,10 +3,6 @@ const models = require('../models');
 
 const router = express.Router();
 
-// router.get('/add', async (req, res) => {
-//     await models.Monster.create({ name: "adult copper dragon", HP: 184, STR: 23, DEX: 12, CON: 21, INT: 18, WIS: 15, CHA: 17, AC: 18 })
-//     res.send("added!!!")
-// })
 
 router.get('/all/:name', async (req, res, next) => {
     const result = await models.Monster.findAll({
@@ -36,7 +32,6 @@ router.put('/change/:name/:HP', async (req, res, next) => {
     res.send(monster.HP);
 });
 
-
 router.get('/addnew/:id', async (req, res, next) => {
     const { id: allMonsterId, ...monsterToAdd } = (await models.AllMonster.findOne({ where: { id: req.params.id } })).get({ plain: true });
     const model = await models.Monster.create({ ...monsterToAdd, allMonsterId })
@@ -44,10 +39,14 @@ router.get('/addnew/:id', async (req, res, next) => {
     console.log(model);
 });
 
-
 router.delete('/delete/:name', async (req, res) => {
        await models.Monster.destroy({ where: { name: req.params.name } });
-       res.send('probably worked')
+       res.send('probably worked');
 });
+
+router.delete('/deleteAll', async (req, res) => {
+    await models.Monster.destroy({where:{}});
+    res.send();
+})
 
 module.exports = router;

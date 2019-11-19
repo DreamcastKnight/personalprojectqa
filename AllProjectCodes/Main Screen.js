@@ -80,6 +80,12 @@ function updateHitPoints() {
     })
         .then(res => res.json())
         .then(data => {
-            hp.innerHTML = '<strong>Hit Points </strong>' + data.HP;
+            hp.innerHTML = '<strong>Hit Points </strong>' + data;
         });
+}
+function purgeThatStuff() {
+    fetch('http://localhost:8080/deleteAll', {
+        method: 'DELETE'
+    }).then(location.reload());
+
 }
