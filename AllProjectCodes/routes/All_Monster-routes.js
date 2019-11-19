@@ -15,7 +15,7 @@ router.get('/monall/:name', async (req, res, next) => {
             name: req.params.name
         },
     });
-    res.send(result);
+    res.send(result.name);
 });
 
 router.get('/monall', async (req, res, next) => {
