@@ -4,14 +4,6 @@ const models = require('../models');
 const router = express.Router();
 
 
-router.get('/all/:name', async (req, res, next) => {
-    const result = await models.Monster.findAll({
-        where: {
-            name: req.params.name
-        },
-    });
-    res.send(result[0].name);
-});
 
 router.get('/getData/:name', async (req, res, next) => {
     const aresult = await models.Monster.findAll({
